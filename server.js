@@ -1,0 +1,13 @@
+require('dotenv').config();
+const express=require('express');const helmet=require('helmet');const compression=require('compression');const path=require('path');
+const site=require('./config/site');const servicios=require('./data/servicios');const init=require('./db/init');
+const app=express();app.set('trust proxy',1);app.set('view engine','ejs');app.set('views',path.join(__dirname,'views'));
+app.use(helmet({contentSecurityPolicy:{directives:{defaultSrc:["'self'"],scriptSrc:["'self'"],styleSrc:["'self'",'https://fonts.googleapis.com'],fontSrc:["'self'",'https://fonts.gstatic.com'],imgSrc:["'self'",'data:'],connectSrc:["'self'"],objectSrc:["'none'"],upgradeInsecureRequests:process.env.NODE_ENV==='production'?[]:null}}}));
+app.use(compression());app.use(express.urlencoded({extended:false,limit:'25kb'}));app.use(express.static(path.join(__dirname,'public'),{maxAge:process.env.NODE_ENV==='production'?'7d':0}));
+app.use((req,res,next)=>{res.locals.site=site;res.locals.servicios=servicios;res.locals.pathActual=req.path;res.locals.canonical=site.url.replace(/\/$/,'')+req.path;next()});
+app.get('/healthz',(req,res)=>res.json({status:'ok'}));
+app.use('/',require('./routes/index'));app.use('/contacto',require('./routes/contacto'));app.use('/admin',require('./routes/admin'));
+app.use((req,res)=>res.status(404).render('pages/error',{title:'Página no encontrada',description:'No encontramos esta página.',code:404,mensaje:'La página que buscás no existe.'}));
+app.use((err,req,res,next)=>{console.error(err);res.status(500).render('pages/error',{title:'Error del servidor',description:'Ocurrió un error.',code:500,mensaje:'Ocurrió un error. Intentá nuevamente más tarde.'})});
+const port=process.env.PORT||3000;
+init().catch(e=>console.error('No se pudo inicializar la base:',e.message)).finally(()=>app.listen(port,()=>console.log('I&C en puerto '+port)));
