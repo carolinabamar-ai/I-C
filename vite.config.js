@@ -1,10 +1,13 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',
   preview: {
-    allowedHosts: ['i-c.onrender.com'],
-  },
-});
+    host: '0.0.0.0',
+    allowedHosts: [
+      'ic.onrender.com',
+      'i-c.onrender.com'
+    ]
+  }
+})
