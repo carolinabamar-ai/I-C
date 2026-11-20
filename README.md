@@ -54,3 +54,13 @@ Fuentes Josefin Sans 400/600 y Source Sans 3 400/600 desde Google Fonts. Paleta 
 - Nosotros: logo original en el encabezado izquierdo, fotografía original del atardecer como banner y texto «Acerca de» completamente debajo, en párrafos verticales.
 - Servicios: logo original en el encabezado izquierdo, selector de nueve servicios a la izquierda y detalle interactivo a la derecha, usando la fotografía real del parque eólico con aerogenerador en primer plano.
 - La tercera fotografía original se utiliza en la portada. No se utilizan imágenes generadas como fotografías reales ni se altera el logo.
+
+## GitHub y despliegue
+
+Subí **el contenido de esta carpeta** a la raíz de tu repositorio de GitHub (no solamente el ZIP). Incluí `.github/workflows/ci.yml`, `.gitignore`, `package.json`, `index.html`, `src/`, `public/` y `vite.config.js`. No subas `node_modules/` ni `dist/`.
+
+En tu computadora ejecutá `npm install` y luego `npm run build` para verificar la compilación. `npm install` generará `package-lock.json`; subí también ese archivo a GitHub para fijar las versiones de las dependencias. El archivo no se incluye en esta entrega porque el entorno de generación no pudo acceder al registro de npm para producirlo de manera verificable.
+
+El repositorio incluye un workflow de GitHub Actions que intenta compilar el sitio en cada push, y configuraciones de rutas para Vercel y Netlify. Para Vercel, importá el repositorio, elegí Vite y usá `dist` como directorio de salida.
+
+**Pendiente antes de producción:** conectar el formulario de Contacto a un proveedor de recepción real. Actualmente copia/descarga el texto de la consulta, pero no lo envía.
