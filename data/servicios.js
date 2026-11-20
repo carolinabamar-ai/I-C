@@ -1,0 +1,11 @@
+module.exports = [
+ {slug:'energia-eolica',titulo:'Energía eólica: acompañamiento técnico integral de parques',descripcion:'Asesoramiento técnico a lo largo de la operación del parque. Evaluamos riesgos, desempeño y oportunidades de mejora con una mirada integral del activo.',foto:'parque-principal.jpg'},
+ {slug:'performance',titulo:'Análisis de performance',descripcion:'Analizamos producción, disponibilidad, curvas de potencia e indicadores operativos para identificar desvíos, pérdidas y oportunidades de optimización.',foto:'parque-atardecer.jpg'},
+ {slug:'contratistas',titulo:'Seguimiento técnico de contratistas',descripcion:'Supervisamos la ejecución de trabajos, verificamos calidad y cumplimiento técnico, y acompañamos la coordinación de actividades en sitio.',foto:'parque-camino.jpg'},
+ {slug:'inspecciones',titulo:'Inspección de aerogeneradores',descripcion:'Realizamos inspecciones técnicas para detectar condiciones anómalas, evaluar componentes y priorizar intervenciones de mantenimiento.',foto:'parque-principal.jpg'},
+ {slug:'operacion-mantenimiento',titulo:'Operación y mantenimiento',descripcion:'Revisamos estrategias de operación y mantenimiento, planes preventivos e indicadores para mejorar confiabilidad y disponibilidad.',foto:'parque-camino.jpg'},
+ {slug:'subestaciones',titulo:'Subestaciones de media y alta tensión',descripcion:'Acompañamos la evaluación técnica, inspección y mantenimiento de subestaciones y sistemas eléctricos asociados al parque.',foto:'parque-principal.jpg'},
+ {slug:'repotenciamiento',titulo:'Análisis de repotenciamiento',descripcion:'Estudiamos alternativas técnicas para renovar o modernizar activos y extender su vida útil, considerando desempeño y viabilidad.',foto:'parque-atardecer.jpg'},
+ {slug:'grandes-componentes',titulo:'Plan de mantenimiento de grandes componentes',descripcion:'Definimos criterios de seguimiento, priorización y planificación de intervenciones para palas, multiplicadoras, generadores y otros componentes críticos.',foto:'parque-camino.jpg'},
+ {slug:'inteligencia-artificial',titulo:'Análisis de datos con inteligencia artificial',descripcion:'Aplicamos análisis de datos e inteligencia artificial para encontrar patrones, anticipar fallas y mejorar reportes, manteniendo el criterio técnico humano en cada decisión.',foto:'parque-atardecer.jpg'}
+];
